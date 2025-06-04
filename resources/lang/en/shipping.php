@@ -1,0 +1,53 @@
+<?php
+
+return [
+    'errors' => [
+        'invalid_address' => 'The provided address is invalid or incomplete.',
+        'invalid_carrier' => 'The selected shipping carrier is not available.',
+        'invalid_service' => 'The selected shipping service is not available.',
+        'invalid_weight' => 'The package weight is invalid or exceeds the maximum allowed weight.',
+        'label_generation_failed' => 'Failed to generate shipping label. Please try again.',
+        'rate_not_found' => 'No shipping rate found for the selected route.',
+        'tracking_not_found' => 'Tracking information is not available for this shipment.',
+        'carrier_api_error' => 'Error communicating with the shipping carrier. Please try again later.',
+        'invalid_dimensions' => 'The package dimensions are invalid or exceed the maximum allowed size.',
+        'service_unavailable' => 'The selected shipping service is currently unavailable.',
+        'address_validation_failed' => 'The address could not be validated. Please check and try again.',
+        'weight_limit_exceeded' => 'The package weight exceeds the maximum allowed weight for this service.',
+        'dimensions_limit_exceeded' => 'The package dimensions exceed the maximum allowed size for this service.',
+        'restricted_items' => 'The package contains items that are restricted for shipping.',
+        'invalid_postal_code' => 'The postal code is invalid for the selected country.',
+        'invalid_phone' => 'The phone number is invalid or in an incorrect format.',
+        'invalid_email' => 'The email address is invalid or in an incorrect format.',
+        'invalid_country' => 'The selected country is not supported for shipping.',
+        'invalid_state' => 'The selected state/province is invalid for the selected country.',
+        'invalid_city' => 'The city name is invalid or contains invalid characters.',
+        'invalid_street' => 'The street address is invalid or contains invalid characters.',
+        'invalid_company' => 'The company name is invalid or contains invalid characters.',
+        'invalid_name' => 'The name is invalid or contains invalid characters.',
+    ],
+
+    'success' => [
+        'label_generated' => 'Shipping label has been generated successfully.',
+        'order_processed' => 'Order has been processed and shipping label has been generated.',
+        'tracking_updated' => 'Tracking information has been updated successfully.',
+        'address_validated' => 'Address has been validated successfully.',
+        'rate_calculated' => 'Shipping rate has been calculated successfully.',
+    ],
+
+    'validation' => [
+        'required_carrier' => 'Please select a shipping carrier.',
+        'required_service' => 'Please select a shipping service.',
+        'required_address' => 'Please provide a valid shipping address.',
+        'required_weight' => 'Please provide a valid package weight.',
+        'required_dimensions' => 'Please provide valid package dimensions.',
+        'required_phone' => 'Please provide a valid phone number.',
+        'required_email' => 'Please provide a valid email address.',
+        'required_name' => 'Please provide a valid name.',
+        'required_country' => 'Please select a valid country.',
+        'required_state' => 'Please select a valid state/province.',
+        'required_city' => 'Please provide a valid city name.',
+        'required_street' => 'Please provide a valid street address.',
+        'required_postal_code' => 'Please provide a valid postal code.',
+    ],
+]; 
