@@ -41,3 +41,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/orders/shipping-services', [OrderController::class, 'getShippingServices'])->name('orders.shipping-services');
     Route::get('/orders/calculate-shipping', [OrderController::class, 'calculateShippingCost'])->name('orders.calculate-shipping');
 });
+
+// Shipping routes
+Route::prefix('shipping')->group(function () {
+    Route::get('/', function () {
+        return view('shipping.index');
+    });
+    
+    Route::get('/tracking', function () {
+        return view('shipping.tracking');
+    });
+    
+    Route::get('/rates', function () {
+        return view('shipping.rates');
+    });
+});
