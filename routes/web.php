@@ -10,7 +10,8 @@ Route::get('/', function () {
 });
 
 // Admin Routes
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::post('/shipping', [AdminShippingController::class, 'store'])->name('shipping.store');
+Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/shipping', [AdminShippingController::class, 'index'])->name('shipping.index');
     Route::get('/shipping/create', [AdminShippingController::class, 'create'])->name('shipping.create');
     Route::post('/shipping', [AdminShippingController::class, 'store'])->name('shipping.store');
@@ -21,6 +22,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 });
 
 // Customer Routes
+Route::post('/shipping/track', [CustomerShippingController::class, 'trackShipment'])->name('shipping.track-shipment');
 Route::middleware(['auth'])->prefix('customer')->name('customer.')->group(function () {
     Route::get('/shipping/track', [CustomerShippingController::class, 'track'])->name('shipping.track');
     Route::post('/shipping/track', [CustomerShippingController::class, 'trackShipment'])->name('shipping.track-shipment');
@@ -41,6 +43,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/orders/shipping-services', [OrderController::class, 'getShippingServices'])->name('orders.shipping-services');
     Route::get('/orders/calculate-shipping', [OrderController::class, 'calculateShippingCost'])->name('orders.calculate-shipping');
 });
+
+Route::post('/orders/calculate-shipping', [OrderController::class, 'calculateShippingCost'])->name('orders.calculate-shipping');
 
 // Shipping routes
 Route::prefix('shipping')->group(function () {

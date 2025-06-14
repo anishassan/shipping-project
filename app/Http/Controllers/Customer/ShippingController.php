@@ -30,6 +30,8 @@ class ShippingController extends Controller
      */
     public function trackShipment(Request $request)
     {
+
+        // return $request->all();
         try {
             $validated = $request->validate([
                 'tracking_number' => 'required|string'
@@ -48,7 +50,7 @@ class ShippingController extends Controller
             Log::error('Kargo takip hatası: ' . $e->getMessage());
             return response()->json([
                 'success' => false,
-                'message' => 'Kargo bulunamadı veya takip edilemedi'
+                'message' => 'Kargo bulunamadı veya takip edilemedi .'.$e->getMessage()
             ], 404);
         }
     }

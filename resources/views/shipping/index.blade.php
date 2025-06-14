@@ -31,33 +31,34 @@
             <h1 class="text-3xl font-bold text-gray-800 mb-8">Create New Shipment</h1>
             
             <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-                <form class="space-y-6">
+                <form class="space-y-6" action="{{ route('shipping.store') }}" method="POST">
+                    @csrf
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <h2 class="text-lg font-medium text-gray-900 mb-4">Sender Information</h2>
                             <div class="space-y-4">
                                 <div>
                                     <label for="sender_name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                                    <input type="text" id="sender_name" name="sender_name" 
+                                    <input type="text" id="sender_name" name="from_address[name]" 
                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                            placeholder="Enter sender's name">
                                 </div>
                                 <div>
                                     <label for="sender_address" class="block text-sm font-medium text-gray-700 mb-2">Address</label>
-                                    <textarea id="sender_address" name="sender_address" rows="3"
+                                    <textarea id="sender_address" name="from_address[street1]" rows="3"
                                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                               placeholder="Enter sender's address"></textarea>
                                 </div>
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
                                         <label for="sender_city" class="block text-sm font-medium text-gray-700 mb-2">City</label>
-                                        <input type="text" id="sender_city" name="sender_city" 
+                                        <input type="text" id="sender_city" name="from_address[city]" 
                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                placeholder="Enter city">
                                     </div>
                                     <div>
                                         <label for="sender_postal" class="block text-sm font-medium text-gray-700 mb-2">Postal Code</label>
-                                        <input type="text" id="sender_postal" name="sender_postal" 
+                                        <input type="text" id="sender_postal" name="from_address[zip]" 
                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                placeholder="Enter postal code">
                                     </div>
@@ -70,26 +71,26 @@
                             <div class="space-y-4">
                                 <div>
                                     <label for="recipient_name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                                    <input type="text" id="recipient_name" name="recipient_name" 
+                                    <input type="text" id="recipient_name" name="to_address[name]" 
                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                            placeholder="Enter recipient's name">
                                 </div>
                                 <div>
                                     <label for="recipient_address" class="block text-sm font-medium text-gray-700 mb-2">Address</label>
-                                    <textarea id="recipient_address" name="recipient_address" rows="3"
+                                    <textarea id="recipient_address" name="to_address[street1]" rows="3"
                                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                               placeholder="Enter recipient's address"></textarea>
                                 </div>
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
                                         <label for="recipient_city" class="block text-sm font-medium text-gray-700 mb-2">City</label>
-                                        <input type="text" id="recipient_city" name="recipient_city" 
+                                        <input type="text" id="recipient_city" name="to_address[city]" 
                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                placeholder="Enter city">
                                     </div>
                                     <div>
                                         <label for="recipient_postal" class="block text-sm font-medium text-gray-700 mb-2">Postal Code</label>
-                                        <input type="text" id="recipient_postal" name="recipient_postal" 
+                                        <input type="text" id="recipient_postal" name="to_address[zip]" 
                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                placeholder="Enter postal code">
                                     </div>
@@ -110,13 +111,13 @@
                             <div>
                                 <label for="dimensions" class="block text-sm font-medium text-gray-700 mb-2">Dimensions (L x W x H cm)</label>
                                 <div class="grid grid-cols-3 gap-2">
-                                    <input type="number" name="length" step="0.1" min="0"
+                                    <input type="number" name="dimensions[length]" step="0.1" min="0"
                                            class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                            placeholder="L">
-                                    <input type="number" name="width" step="0.1" min="0"
+                                    <input type="number" name="dimensions[width]" step="0.1" min="0"
                                            class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                            placeholder="W">
-                                    <input type="number" name="height" step="0.1" min="0"
+                                    <input type="number" name="dimensions[height]" step="0.1" min="0"
                                            class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                            placeholder="H">
                                 </div>

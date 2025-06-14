@@ -38,7 +38,7 @@ class ShippingController extends Controller
         return view('admin.shipping.create');
     }
 
-    /**
+    /** 
      * Kargo oluştur
      */
     public function store(Request $request)
@@ -62,8 +62,10 @@ class ShippingController extends Controller
             $shipment = Shipment::create([
                 'from_address_id' => $fromAddress->id,
                 'to_address_id' => $toAddress->id,
+                'tracking_number' => 'TEMP_' . uniqid(),
                 'weight' => $validated['weight'],
                 'dimensions' => $validated['dimensions'],
+                'total_price' => 0.00,
                 'status' => 'pending'
             ]);
 

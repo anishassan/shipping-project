@@ -31,7 +31,8 @@
             <h1 class="text-3xl font-bold text-gray-800 mb-8">Calculate Shipping Rates</h1>
             
             <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-                <form class="space-y-6">
+                <form class="space-y-6" action="{{ route('orders.calculate-shipping') }}" method="post">
+                    @csrf
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label for="from_country" class="block text-sm font-medium text-gray-700 mb-2">From Country</label>

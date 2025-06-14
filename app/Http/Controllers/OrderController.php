@@ -117,6 +117,7 @@ class OrderController extends Controller
 
     public function calculateShippingCost(Request $request)
     {
+        // return $request->all();
         $request->validate([
             'carrier_id' => 'required|exists:shipping_carriers,id',
             'service_id' => 'required|exists:shipping_services,id',

@@ -31,7 +31,8 @@
             <h1 class="text-3xl font-bold text-gray-800 mb-8">Track Your Shipment</h1>
             
             <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-                <form class="space-y-4">
+                <form class="space-y-4" action="{{ route('shipping.track-shipment') }}" method="POST">
+                    @csrf
                     <div>
                         <label for="tracking_number" class="block text-sm font-medium text-gray-700 mb-2">Tracking Number</label>
                         <input type="text" id="tracking_number" name="tracking_number" 
